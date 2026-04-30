@@ -1,0 +1,8 @@
+<td>
+  <span class="badge bg-<%= 
+    user.admin? ? 'danger' : 
+    user.staff? ? 'warning' : 
+    'secondary' %>">
+    <%= user.role %>
+  </span>
+</td>

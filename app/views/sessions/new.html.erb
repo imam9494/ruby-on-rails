@@ -1,0 +1,31 @@
+<!-- app/views/sessions/new.html.erb -->
+
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <div class="card shadow">
+      <div class="card-header text-center">
+        <h4>Login</h4>
+      </div>
+
+      <div class="card-body">
+        <%= form_with url: login_path do %>
+
+          <div class="mb-3">
+            <label>Email</label>
+            <%= text_field_tag :email, nil, class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <label>Password</label>
+            <%= password_field_tag :password, nil, class: "form-control" %>
+          </div>
+
+          <div class="d-grid">
+            <%= submit_tag "Login", class: "btn btn-primary" %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

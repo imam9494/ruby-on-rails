@@ -1,0 +1,38 @@
+<div class="container mt-4">
+
+  <h3 class="mb-3">Dashboard</h3>
+
+  <p>Welcome, <strong><%= current_user.name %></strong></p>
+  <p>Email: <%= current_user.email %></p>
+
+  <p>
+    Role:
+    <span class="badge bg-info">
+      <%= current_user.role.capitalize %>
+    </span>
+  </p>
+
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h5>Total Users</h5>
+        <h2><%= User.count %></h2>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h5>Admin</h5>
+        <h2><%= User.where(role: "admin").count %></h2>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm">
+        <h5>Staff</h5>
+        <h2><%= User.where(role: "staff").count %></h2>
+      </div>
+    </div>
+  </div>
+
+</div>

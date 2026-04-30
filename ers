@@ -1,0 +1,16 @@
+                                                Table "public.users"
+         Column         |              Type              | Collation | Nullable |              Default              
+------------------------+--------------------------------+-----------+----------+-----------------------------------
+ id                     | bigint                         |           | not null | nextval('users_id_seq'::regclass)
+ created_at             | timestamp(6) without time zone |           | not null | 
+ email                  | character varying              |           | not null | ''::character varying
+ encrypted_password     | character varying              |           | not null | ''::character varying
+ remember_created_at    | timestamp(6) without time zone |           |          | 
+ reset_password_sent_at | timestamp(6) without time zone |           |          | 
+ reset_password_token   | character varying              |           |          | 
+ updated_at             | timestamp(6) without time zone |           | not null | 
+Indexes:
+    "users_pkey" PRIMARY KEY, btree (id)
+    "index_users_on_email" UNIQUE, btree (email)
+    "index_users_on_reset_password_token" UNIQUE, btree (reset_password_token)
+

@@ -1,0 +1,35 @@
+<div class="container mt-4">
+
+  <div class="card shadow">
+    <div class="card-body">
+
+      <h3 class="card-title mb-3">
+        Dashboard#index#
+      </h3>
+
+      <% if user_signed_in? %>
+        <div class="alert alert-success">
+          Welcome, <strong><%= current_user.name %></strong>
+        </div>
+
+        <p>Email: <%= current_user.email %></p>
+
+        <hr>
+
+        <div class="d-flex gap-2">
+          <%= link_to "View Users", users_path, class: "btn btn-primary" %>
+          <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-warning" %>
+        </div>
+
+      <% else %>
+        <div class="alert alert-danger">
+          Kamu belum login
+        </div>
+
+        <%= link_to "Login", new_user_session_path, class: "btn btn-success" %>
+      <% end %>
+
+    </div>
+  </div>
+
+</div>

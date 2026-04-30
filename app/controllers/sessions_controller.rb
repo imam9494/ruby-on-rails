@@ -1,0 +1,1 @@
+redirect_to dashboard_path

@@ -1,0 +1,51 @@
+<h2>Data Users</h2>
+
+<form method="get" class="mb-3">
+  <div class="input-group">
+    <input type="text" name="q" value="<%= params[:q] %>" class="form-control" placeholder="Search...">
+    <button class="btn btn-primary">Search</button>
+  </div>
+</form>
+
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td>
+          <span class="badge bg-<%=
+  user.admin? ? 'danger' :
+  user.staff? ? 'warning' :
+  'secondary' %>">
+  <%= user.role.capitalize %>
+</span>
+        </td>
+        <td>
+          <%= link_to "Show", admin_user_path(user), class: "btn btn-info btn-sm" %>
+          <%= link_to "Edit", edit_admin_user_path(user), class: "btn btn-warning btn-sm" %>
+          <%= button_to "Delete", admin_user_path(user),
+      method: :delete,
+      form: { style: "display:inline" },
+      onclick: "return confirm('Yakin mau hapus?')",
+      class: "btn btn-danger btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="mt-3">
+  <%= paginate @users %>
+</div>

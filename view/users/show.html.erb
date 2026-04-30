@@ -1,0 +1,18 @@
+<h3>Detail User</h3>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<%= button_to "Hapus", user_path(@user),
+    method: :delete,
+    data: { confirm: "Yakin?" },
+    class: "btn btn-danger btn-sm" %>
+
+<%= link_to "Kembali", users_path %>
